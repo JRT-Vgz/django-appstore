@@ -29,7 +29,7 @@
                             <p class="card-text">
                                 {{ product.description}}
                             </p>
-                            <a class="btn btn-tomato" href="/">Leer más</a>
+                            <a class="btn btn-tomato" href="{% url "get_product" id=product.id%}">Leer más</a>
                         </div>
                     </div>
                 </div>
