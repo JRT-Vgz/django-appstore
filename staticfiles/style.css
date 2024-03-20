@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #e8e8e8;
+}
+
+.container {
+    font-family: "Montserrat",Georgia,'Times New Roman',Times,serif;
+    padding: 20px 0;
+}
+
+.card {
+    margin: 10px 0;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+.card:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 32px;
+}
+
+.price-container {
+    display: flex;
+    gap: 12px;
+}
+
+.card-text {
+    color: #9e9da1;
+    font-size: 12px;
+}
+
+.btn {
+    width: 100%;
+}
+
+.btn-tomato {
+    background-color: tomato;
+    color: white;
+}
+
+.btn-tomato:hover {
+    background-color: #b24532;
+    color: white;
+}
+
+.product-price {
+    font-weight: bold;
+}
+
+/* Product Detail */
+.jumbotron {
+    padding: 40px 40px 40px 0;
+}
+
+.product-detail-row {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.comment {
+    margin: 20px 0px;
+    border-bottom: #19192E solid 1px;
+}
+
+.comment-column {
+    padding-right: 30px;
+}
+
+/* Login */
+.login-container, .signup-container {
+    padding: 40px;
+    display: grid;
+    align-items: center;
+    max-width: 400px;
+    margin: auto;
+}
+
+.signup-container {
+    max-width: 600px;
+}
+
+.signup-container label {
+    display: block;
+    margin-top: 10px;
+}
+
+.login-container input, .signup-container input {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.helptext {
+    font-size: 13px;
+    color: #9e9da1;
+}
+
+.submit-btn {
+    text-align: center;
+}

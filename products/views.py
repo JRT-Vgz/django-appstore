@@ -7,9 +7,9 @@ from .models import Product
 
 def index(request):
     products = Product.objects.all()
-    return render(request, "../templates/list_of_products.html", {"products": products})
+    return render(request, "products/list_of_products.html", {"products": products})
 
 
 def get_product(request, id):   
     product = Product.objects.get(id=id)
-    return render(request, "../templates/show_product.html", {"product": product})
+    return render(request, "products/show_product.html", {"product": product})
