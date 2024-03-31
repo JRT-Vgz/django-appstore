@@ -26,4 +26,30 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-5 comment-column">
+                <form action="{% url 'add_new_comment' id=product.id %}" 
+                    method="post"
+                    class="post-form">
+                    {% csrf_token %}
+                    <div class="input-group mb-4">
+                        {{ form.text }}
+                    </div>
+                    <button type=""submit" class=""save btn btn-dark">Enviar</button>
+                </form>
+            </div>
+
+            {% if perms.products.view_comment %}
+                <div class="col-7">
+                    <h2 class="comment-title text-left">Comentarios</h2>
+                    {% for comment in comments %}
+                        <div class="date">{{ comment.created_date }}</div>
+                        <strong>{{ comment.author }}</strong>
+                        <p>{{ comment.text }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

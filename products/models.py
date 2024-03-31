@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-
+# Modelo de los productos.
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(decimal_places=2, max_digits=10)
@@ -29,7 +29,7 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.name} | {self.brand}"
     
-    
+# Modelo de las marcas.    
 class Brand(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField(null=True, blank=True)
@@ -45,3 +45,25 @@ class Brand(models.Model):
     
     def __str__(self):
         return self.name
+    
+
+# Modelo de los comentarios.
+class Comment(models.Model):
+    product = models.ForeignKey(
+        "products.Product",
+        on_delete=models.CASCADE,
+        related_name="comments"
+    )
+    author = models.CharField(max_length=200)
+    
+    text = models.TextField()
+    
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+    
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+        
+    def __str__(self):
+        return self.text

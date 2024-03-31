@@ -1,5 +1,3 @@
-{% include 'navigation.html' %}
-
 {% load static %}
 <html lang="es">
     <head>
@@ -16,8 +14,9 @@
         {# Styles #}
     </head>
     <body>
-        {% block navigation_bar %}
-        {% endblock %}
+        
+        {% include 'navigation.html' %}
+
         {% block content %}
         {% endblock %}
     </body>
