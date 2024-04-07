@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, permission_required
-
 from .models import Product, Comment
 from .forms import CommentsForm
 
-# Creamos las funciones para request - response, con la lógica de negocio.
 
 def index(request):
     products = Product.objects.all()

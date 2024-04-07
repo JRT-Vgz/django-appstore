@@ -7,11 +7,11 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
     description = models.CharField(max_length=50, null =True)
     sku = models.CharField(max_length=10)
-    category = models.CharField(max_length=50)
+    category = models.CharField(max_length=55)
     brand = models.ForeignKey(
         "products.Brand",
         on_delete=models.CASCADE,
-        related_name="products"
+        related_name="products" 
     )
     
     image = models.ImageField(
@@ -54,7 +54,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name="comments"
     )
-    author = models.CharField(max_length=200)
+    author = models.CharField(max_length=205)
     
     text = models.TextField()
     
