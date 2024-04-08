@@ -4,20 +4,29 @@
     <div class="container">
         <div class="row product-detail-row mt-4 mb-5">
             <div class="col-5">
-                <img src="https://pbs.twimg.com/media/FGBYPmtX0AguaV2.jpg"
+                {% if product.image %}
+                <img src="{{ product.image.url }}"
                      class="img-fluid"
                      height="">
+                {% endif %}
             </div>
             <div class="col-7">
                 <div class="jumbotron">
                     <h1 class="display-4">{{product.name}}</h1>
                     <div class="price-container">
                             <h5 class="card-title">
-                                <s>{{product.price}} USD</s>
+                                {% if product.brand.discount == 0 %}
+                                    {{product.price}} USD
+                                {% else %}
+                                    <s>{{product.price}} USD</s>
+                                    {{ final_price }} USD
+                                {% endif %}
                             </h5>
-                        <h5 class="card-title">3 USD</h5>
                     </div>
                     <hr class="my-4">
+                    <p>
+                        {{ product.description}}
+                    </p>
                     <p>
                         {{ product.brand.description}}
                     </p>

@@ -5,7 +5,7 @@ from django.utils import timezone
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(decimal_places=2, max_digits=10)
-    description = models.CharField(max_length=50, null =True)
+    description = models.CharField(max_length=200, null =True)
     sku = models.CharField(max_length=10)
     category = models.CharField(max_length=55)
     brand = models.ForeignKey(
@@ -33,7 +33,7 @@ class Product(models.Model):
 class Brand(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField(null=True, blank=True)
-    #discount = models.IntegerField()
+    discount = models.IntegerField(null=True, blank=True)
     
     logo = models.ImageField(
         blank=True, null=True, 

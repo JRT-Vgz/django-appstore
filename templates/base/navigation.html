@@ -2,25 +2,31 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{% url 'index' %}">Tienda de Barrio</a>"
-            {% if user.is_authenticated %}
-                <ul class="navbar-nav">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/" tabindex="-1">{{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action={% url "logout" %} method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-light me-2" tabindex="-2" type="submit">Logout</button>"
+                            </form>
+                        </li>
+                {% else %}
+                <li class="nav-item">
+                    <form action={% url "signup" %} method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-light me-2" tabindex="-2" type="submit">Sign Up</button>"
+                    </form>
+                </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/" tabindex="-1">{{ user.username }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <form action={% url "logout" %} method="post">
+                        <form action={% url "login" %} method="post">
                             {% csrf_token %}
-                            <button class="btn btn-outline-light me-2" tabindex="-2" type="submit">Logout</button>"
+                            <button class="btn btn-outline-light me-2" tabindex="-2" type="submit">Login</button>"
                         </form>
                     </li>
-                </ul>
-            {% else %}
-                <li class="nav-item">
-                    <a class=" "btn btn-outline-light me-2"
-                        href=""{% url "login" %}"
-                        tabindex="-1"
-                        aria-disabled="true">Login</a>"
-                </li>
-            {% endif %}
+                {% endif %}
+        </ul>
         </div>
     </nav>
