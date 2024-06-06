@@ -3,16 +3,15 @@ from django.contrib.auth.decorators import login_required, permission_required
 from .models import Product, Comment
 from .forms import CommentsForm
 
+
 def calculate_product_price_with_discount(product):
     if product.brand.discount > 0:
         final_price = product.price - (product.price * product.brand.discount / 100)
     return final_price
-    
-    
+
 def index(request):
     products = Product.objects.all()
     return render(request, "products/list_of_products.html", {"products": products})
-
 
 def get_product(request, id):
     try:   

@@ -48,6 +48,7 @@ class LoginViewTests(TestCase):
         user = response.wsgi_request.user
         self.assertTrue(user.is_authenticated)
    
+   
     def test_login_invalid(self):
         data = {
             "username": self.user.username,
